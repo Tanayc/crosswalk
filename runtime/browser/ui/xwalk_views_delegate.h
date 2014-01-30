@@ -32,8 +32,8 @@ class XWalkViewsDelegate : public views::ViewsDelegate {
   virtual void NotifyAccessibilityEvent(
       views::View* view,
       ui::AccessibilityTypes::Event event_type) OVERRIDE {}
-  virtual void NotifyMenuItemFocused(const string16& menu_name,
-                                     const string16& menu_item_name,
+  virtual void NotifyMenuItemFocused(const base::string16& menu_name,
+                                     const base::string16& menu_item_name,
                                      int item_index,
                                      int item_count,
                                      bool has_submenu) OVERRIDE {}
@@ -57,6 +57,8 @@ class XWalkViewsDelegate : public views::ViewsDelegate {
   virtual bool IsWindowInMetro(gfx::NativeWindow window) const OVERRIDE {
     return false;
   }
+#elif defined(OS_LINUX) && !defined(OS_CHROMEOS)
+  virtual gfx::ImageSkia* GetDefaultWindowIcon() const OVERRIDE;
 #endif
 
  private:
