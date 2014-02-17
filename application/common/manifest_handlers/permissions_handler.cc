@@ -49,7 +49,7 @@ bool PermissionsHandler::Parse(scoped_refptr<ApplicationData> application,
       return false;
     }
     if (api_permissions.find(permission) != api_permissions.end()) {
-      *error = ASCIIToUTF16(
+      *error = base::ASCIIToUTF16(
           "Duplicated permission names found.");
       return false;
     }
