@@ -172,6 +172,10 @@ fi
 GYP_EXTRA_FLAGS="${GYP_EXTRA_FLAGS} -Duse_ash=1 -Duse_ozone=1"
 %endif
 
+# FIXME(rakuco): Disable Alsa support temporarily while the fix for TIVI-2685
+# is propagated to all Tizen platforms we currently target.
+GYP_EXTRA_FLAGS="${GYP_EXTRA_FLAGS} -Duse_alsa=0"
+
 # Change src/ so that we can pass "." to --depth below, otherwise we would need
 # to pass "src" to it, but this confuses the gyp make generator, that expects
 # to be called from the root source directory.
